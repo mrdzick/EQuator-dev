@@ -3,7 +3,7 @@ import "./element.js";
 const searchElement = document.querySelector('nav-bar');
 
 const getData = () => {
-    fetch(`https://api.nasa.gov/neo/rest/v1/feed?start_date=${searchElement.startDateValue}&end_date=${searchElement.endDateValue}&api_key=a4sEsObdu19UdfR1kVATPfPAS2dCvfQs1UddoKwo`)
+    fetch(`${process.env.API_URL}/neo/rest/v1/feed?start_date=${searchElement.startDateValue}&end_date=${searchElement.endDateValue}&api_key=${process.env.API_KEY}`)
         .then(response => response.json())
         .then(response => {
             const nearEarthObject = response.near_earth_objects;
